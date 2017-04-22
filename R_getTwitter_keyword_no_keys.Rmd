@@ -1,0 +1,31 @@
+---
+title: "R_getTwitter"
+author: "Chia-chi Ku"
+date: "April 20, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(twitteR)
+
+
+# Enter your keys and token below 
+api_key <- "xxxxxxxxxxxxxxxxxxx"
+api_secret <- "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+access_token <- "xxxxxxxxxxxxxxxx-xxxxxxxxxxxxxxxxxxxx"
+access_token_secret <- "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+setup_twitter_oauth(api_key,api_secret,access_token,access_token_secret)
+
+
+
+tweets = searchTwitter("Trump", n=25000, lang="en",since = '2017-04-19', until='2017-04-20')
+length(tweets)
+library(dplyr)
+length(unique(tweets))
+save(tweets2,file = "tweets_0420.RData")
+#load("D:/tweets_0420.RData")
+```
