@@ -28,4 +28,11 @@ library(dplyr)
 length(unique(tweets))
 save(tweets2,file = "tweets_0420.RData")
 #load("D:/tweets_0420.RData")
+
+# convert the list to a dataframe
+tweet.df <- twListToDF(tweets2)
+head(tweet.df$text)
+
+# export the dataframe to a csv
+write.csv(tweet.df,file = "tweets_0420.csv")
 ```
